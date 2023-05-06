@@ -1,0 +1,21 @@
+﻿body {
+    background-color: beige;
+    font-family: Verdana, Tahoma, sans-serif;
+    font-size: 11pt;
+    padding: 10px;
+}
+
+.green-text {
+    color: green;
+}
+
+table {
+    width: 400px;
+    border: solid darkblue 2px;
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 6pt;
+    border: solid darkblue 1px;
+}

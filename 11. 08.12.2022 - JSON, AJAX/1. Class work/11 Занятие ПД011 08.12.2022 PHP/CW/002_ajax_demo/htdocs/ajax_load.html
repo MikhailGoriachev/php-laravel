@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>AJAX - метод load()</title>
+        <meta charset="UTF-8">
+        <script src='../js/jquery-3.6.0.min.js'></script>
+        <link rel="stylesheet" href="../css/style.css"/>
+
+        <!-- картинка для отображения в заголовке вкладки браузера -->
+        <link rel="shortcut icon" href="../imgs/tools.png" type="image/x-icon" />
+        <link rel="icon" href="../imgs/tools.png" type="image/x-icon"/>
+    </head>
+    <body>
+        <p>Метод load загружает код HTML, полученный с сервера, в элемент на 
+            странице. Он принимает следующие параметры:
+        </p>
+        
+        <ul>
+            <li>
+                url: обязательный параметр, содержащий адрес ресурса, к которому 
+                будет обращаться запрос
+            </li>
+            <li>
+                data: необязательный параметр, содержащий простой объект 
+                javascript или строку, которые будут отправлены на сервер 
+                вместе с запросом
+            </li>
+            <li>
+                complete(responseText, textStatus, XMLHttpRequest: 
+                необязательный параметр) - функция обратного вызова, 
+                которая будет выполняться при завершении запроса.
+            </li>
+        </ul>
+        
+        <div class="demo-div">
+            <h3>Загрузить при помощи простейшего load(url)</h3>
+            <button id="btn1"> Загрузить</button>
+            <div id="news1"><h3>Нет новостей</h3></div>
+        </div>
+        
+        <div class="demo-div">
+            <h3>Загрузить при помощи load(url, data)</h3>
+            <button id="btn2">Загрузить</button>
+            <div id="news2"><h3>Нет новостей</h3></div>
+        </div>
+        
+        <div class="demo-div">
+            <h3>Загрузить при помощи load(url, callback)</h3>
+            <button id="btn3">Загрузить</button>
+            <div id="news3"><h3>Нет новостей</h3></div>
+            <h4 id="status3">Запрос не выполнен</h4>
+        </div>
+
+        <div class="demo-div">
+            <h3>Загрузить при помощи load(url, data, callback)</h3>
+            <button id="btn4">Загрузить</button>
+            <div id="news4"><h3>Нет новостей</h3></div>
+            <h4 id="status4">Запрос не выполнен</h4>
+        </div>
+        
+        <hr />
+
+        <nav>
+            <div>
+                <a href="../index.html">Главная</a>
+                <a href="ajax_get.html">Метод get() в AJAX</a>
+                <a href="ajax_post.html">Метод post() в AJAX</a>
+                <a href="ajax_jqxhr.html">Объект jqXHR в AJAX</a>
+            </div>
+        </nav>
+        
+        <!-- 
+        Скрипт, реализующий AJAX-запрос при помощи jQuery
+        jQuery удобно инкапсулирует объект XMLHttpRequest - собственно
+        реализация технологии AJAX -- Asynchrionous JavaScript And XML 
+        -->
+        
+        <script>
+            // load(url)
+            // по клику на кнопке только в объект с идентификатором news
+            // метод load() загрузит данные с сервера без перезагрузки 
+            // всей страницы
+            $(function(){
+                $('#btn1').click(function(){
+                    // самый простой вариант load: load(url)
+                    $('#news1').load('../src/ajax_load1.php');
+                });
+            });
+
+            // load(url, data)
+            // Использование данных в запросе
+            // если второй параметр - data - не определен, то запрос выполняется
+            // как GET-запрос. Если же мы используем параметр data, то 
+            // осуществляется POST-запрос, а данные передаются как при 
+            // отправке формы.
+            $(function(){
+                $('#btn2').click(function(){
+                    // передача данных в запросе: load(url, data)
+                    $('#news2').load('../src/ajax_load2.php',
+                        // объект данных - пары ключ:значение
+                        // имена - произвольные
+                        {'key1':'Строка, отправленная на сервер',
+                         'key2': 123, 
+                         'key3':'2022-12-08'});
+                });
+            });
+            
+            // Использование метода обратного вызова
+            $(function(){
+                $('#btn3').click(function(){
+                    // load(url, callback)
+                    // вызов load() - отправка AJAX-запроса
+                    // вариант load с функцией обратного вызова: load(url, callback)
+                    // вариант load с передачей данных серверу и функцией обратного вызова:
+                    //                load(url, data, callback)
+                    $('#news3').load('../src/ajax_load3.php',
+                        // функция обратного вызова, сработала по выполнении запрос 
+                        function(){$('#status3').text('Запрос3 выполнен');});
+                });
+            });
+
+            // load(url, data, callback)
+            // передача на сервер, использование метода обратного вызова
+            $(function(){
+                $('#btn4').click(function(){
+                    // вызов load() - отправка AJAX-запроса
+                    // вариант load с передачей данных серверу и функцией обратного вызова:
+                    //                load(url, data, callback)
+                    $('#news4').load('../src/ajax_load4.php',
+                        // объект данных - пары ключ:значение
+                        // имена - произвольные
+                        {
+                            'key1':'Строка, отправленная на сервер',
+                            'key2': 123,
+                            'key3':'2022-12-08'},
+                        // функция обратного вызова, сработала по выполнении запрос
+                        function(){$('#status4').text('Запрос4 выполнен');});
+                });
+            });
+        </script>
+    </body>
+</html>

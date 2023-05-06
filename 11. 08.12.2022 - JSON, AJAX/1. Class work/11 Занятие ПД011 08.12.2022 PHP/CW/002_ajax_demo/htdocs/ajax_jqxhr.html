@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>AJAX - jqXHR и методы get(), post()</title>
+        <meta charset="UTF-8">
+        <script src='../js/jquery-3.6.0.min.js'></script>
+        <link href="../css/style.css" rel="stylesheet" />
+
+        <!-- картинка для отображения в заголовке вкладки браузера -->
+        <link rel="shortcut icon" href="../imgs/tools.png" type="image/x-icon" />
+        <link rel="icon" href="../imgs/tools.png" type="image/x-icon"/>
+    </head>
+    <body>
+        <p>
+            Объект jqXHR представляет собой обертку над стандартным 
+            объектом javascript XMLHttpRequest.
+        </p>
+        <p>
+            Для jqXHR определено сразу несколько методов, которые помогают 
+            обработать ответ::
+        </p>
+        <ul>
+            <li>
+                done(function(data, textStatus, jqXHR)): обрабатывает успешный 
+                ответ с сервера
+            </li>
+            <li>
+                fail(function(jqXHR, textStatus, errorThrown)): обрабатывает 
+                ответ от сервера, запрос к которому закончился ошибкой
+            </li>
+            <li>
+                always(function(data|jqXHR, textStatus, jqXHR|errorThrown)): 
+                обрабатывает как успешные ответы с сервера, так и сообщения 
+                с ошибкой
+            </li>
+            <li>
+                then(function(data, textStatus, jqXHR), function(jqXHR, 
+                textStatus, errorThrown)): включает функциональность 
+                методов done и fail, принимая соответственно две функции 
+                обработки ответа
+            </li>
+        </ul>
+
+        <div class="demo-div">
+            <h3>Загрузить при помощи get().done() </h3>
+            <button id="btn1"> Загрузить</button>
+            <div id="data1"><h3>Нет данных от сервера</h3></div>
+            <p id="status1">Запрос не выполнен</p>
+        </div>
+        
+        <div class="demo-div">
+            <h3>Загрузить при помощи post().done()</h3>
+            <button id="btn2">Загрузить</button>
+            <div id="data2"><h3>Нет данных от сервера</h3></div>
+            <p id="status2">Запрос не выполнен</p>
+        </div>
+        
+        <div class="demo-div">
+            <h3>Использование нескольких методов jqXHR</h3>
+            <button id="btn3">Загрузить</button>
+            <div id="data3"><h3>Нет данных от сервера</h3></div>
+            <p id="status3">Запрос не выполнен</p>
+        </div>
+        
+        <hr/>
+        
+        <nav>
+            <div>
+                <a href="../index.html">Главная</a>
+                <a href="ajax_load.html">Метод load() в AJAX</a>
+                <a href="ajax_get.html">Метод get() в AJAX</a>
+                <a href="ajax_post.html">Метод post() в AJAX</a>
+            </div>
+        </nav>
+        
+         <script>
+             // загрузить при помощи get.done()
+            $(function(){
+                $('#btn1').click(function(){
+                    $.get('../src/ajax_get1.php') // возвращает объект jqXHR
+                     .done(function(data) {       // data - данные от сервера
+                        $('#data1').html(data); 
+                        $('#status1').text("AJAX-запрос выполнен");
+                    });
+                });
+            });
+            
+            // загрузить при помощи post.done()
+            $(function(){
+                $('#btn2').click(function(){
+                    $.post('../src/ajax_post1.php') // возвращает объект jqXHR
+                     .done(function(data) {         // data - данные от сервера
+                        $('#data2').html(data);
+                        $('#status2').text("AJAX-запрос выполнен");
+                    });
+                });            
+            });
+            
+            // использование нескольких методов объекта jqXHR
+            $(function(){
+                $('#btn3').click(function() {
+                    let jqXHR;
+
+                    // отправить запрос AJAX и получить объект jqXHR
+                    // отправка данных на сервер
+                    jqXHR = $.post('../src/ajax_post_jqxhr1_.php', {id: 1, name: "Василиса"});
+                    // формат вызова, когда нет передаваемых на сервер данных
+                    // jqXHR = $.post('../src/ajax_get1.php');
+
+                    // установить функцию обратного вызова на событие -
+                    // завершение выполнения запроса
+                    jqXHR.done(function (data) {    // data - данные от сервера
+                        $('#data3').html(data);
+                        $('#status3').text("AJAX-запрос выполнен");
+                    });
+
+                    // установить функцию обратного вызова на событие - ошибка
+                    // при выполнении запроса
+                    jqXHR.fail((data) => $('#status3').html("Ошибка при выполнении запроса AJAX"));
+                })
+            });
+        </script>
+
+    </body>
+</html>

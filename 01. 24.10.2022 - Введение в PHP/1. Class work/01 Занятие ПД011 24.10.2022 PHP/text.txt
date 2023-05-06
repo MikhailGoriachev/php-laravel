@@ -1,0 +1,33 @@
+https://www.php.net/
+http://www.php.su/
+
+Расмус Лердорф
+----------------
+
+PHP -- PHP Hypertext Preprocessor download 
+
+XAMP          -- Apache, MySQL, PHP
+OpenServer    -- Apache, MySQL, PHP
+
+
+PHP:
+https://windows.php.net/download
+VS16 x64 Thread Safe
+
+c:/php
+php.ini-development копировать в php.ini
+
+раскомментировать
+extension_dir = "ext"
+
+extension=mysqli
+extension=mbstring   ; для корректной работы с кириллицей 
+
+short_open_tag = On
+
+https://www.jetbrains.com/phpstorm/
+
+https://code.visualstudio.com/
+https://netbeans.apache.org/
+https://eclipseide.org/
+

@@ -1,0 +1,41 @@
+hr {
+    clear: both;
+    margin: 0;
+    height: 20px;
+    box-sizing: border-box;
+}
+
+/* 
+    класс блоков для размещения демонстрационных
+    элементов AJAX - работа с разными методами и т.д.
+*/
+.demoDiv {
+    height: 360px; 
+    width: 30%; 
+    float: left;
+    overflow: auto;   /* включает прокрутку если контекст не помещается в блок */
+    border: solid 1px darkblue;  /* граница элемента */  
+    margin: 10px 20px;  /* T R B L  - TRuBLed   TB RL внешние отступы */
+    padding: 5px; /* внутренние отступы */ 
+    box-sizing: border-box;  /* все размеры - вписаны в height, width */
+    box-shadow: 5px 5px 16px darkseagreen; /* тень элемента ГоризСмещ ВертСмещ Ширина Цвет */
+}
+
+/* 
+   Навигационная часть одинакова для всех страниц с демонстрацией 
+   AJAX-технологии
+*/
+nav {
+    text-align: center;
+}
+
+/* стили для таблицы данных */
+table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+}
+         
+td, th{
+    border: solid 1px #ccc;
+    padding: 5px;
+}

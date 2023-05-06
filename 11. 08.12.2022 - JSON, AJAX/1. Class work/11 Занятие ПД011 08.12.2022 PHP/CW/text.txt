@@ -1,0 +1,29 @@
+
+composer
+https://getcomposer.org/
+
+установить composer
+
+для проверки в консоли ввести
+composer --version
+
+в php.ini открыть расширение
+extension=fileinfo
+
+глобальная установка Laravel при помощи composer
+composer global require laravel/installer
+
+для проверки - перейти в папку, в которой будет создаваться приложение
+laravel new example-app
+
+перейти в папку приложения
+cd example-app
+
+запуск сервера
+php artisan serve
+
+composer                     npm
+Шаблонизатор Blade           ASP.NET Razor
+ORM          Eloquent        .NET Entity Framework 
+
+--------------------------------------------------------------------------------------

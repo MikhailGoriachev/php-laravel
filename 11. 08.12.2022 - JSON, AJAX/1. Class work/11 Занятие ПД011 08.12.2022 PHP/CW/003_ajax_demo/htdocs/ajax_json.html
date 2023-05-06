@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>AJAX - получение данных вформате JSON</title>
+    <meta charset="UTF-8">
+    <script src='../js/jquery-3.6.0.min.js'></script>
+    <link rel="stylesheet" href="../css/style.css"/>
+
+    <!-- картинка для отображения в заголовке вкладки браузера -->
+    <link rel="shortcut icon" href="../imgs/tools.png" type="image/x-icon" />
+    <link rel="icon" href="../imgs/tools.png" type="image/x-icon"/>
+</head>
+<body>
+    <section>
+        <p>Ранее мы увидели, что мы можем использовать метод get для
+            получения данных в формате json. Однако библиотека jQuery
+            также предоставляет специальный метод getJSON. Этот метод
+            отправляет на сервер GET-запрос и в ответ получает данные
+            json.
+        </p>
+        <p>Этот метод принимает следующие параметры:</p>
+        <ul>
+            <li>url: обязательный параметр, содержащий адрес ресурса,
+                к которому будет обращаться запрос
+            </li>
+            <li>data: необязательный параметр, содержащий простой объект
+                javascript или строку, которые будут отправлены на сервер
+                вместе с запросом
+            </li>
+            <li>success(data, textStatus, jqXHR): необязательный параметр,
+                представляющий функцию обратного вызова, которая будет
+                выполняться при успешном выполнении запроса
+            </li>
+        </ul>
+
+        <p>Метод getJSON возвращает объект jqXHR, связанный с текущем запросом.<p>
+    </section>
+    <div  class="demoDiv">
+        <h3>Список формируем при помощи AJAX</h3>
+        <form id="form1">
+            <p><input type="text" id="name1" name="name1" placeholder="Имя (ожидается john)" /></p>
+            <p><input type="number" id="age1" name="age1" placeholder="Возраст (от 18 до 141)" /></p>
+            <p>
+                <select id="countries1" name="countries1">
+                    <option disabled>Выберите страну</option>
+                </select>
+                <script>
+                $(function(){
+                    $.getJSON(
+                        '../data/countries.json', // файл данных
+                        function(data) { // функция обратного вызова - работает по окончании запроса AJAX
+                            $.each(data, function(key, val) {
+                                // отображаем val - название, но на сервере получаем key - ид
+                                $('#countries1').append(`<option value="${key}">${val}</option>`);
+                            });
+                        }
+                    );
+                });
+                </script>
+            </p>
+            <p><input type="submit" value="Отправить" /></p>
+        </form>
+        <div id="result1"><h3>Нет данных от сервера</h3></div>
+    </div>
+
+    <div  class="demoDiv">
+        <h3>Таблицу формируем при помощи AJAX</h3>
+        <table id="users" align="center">
+            <tr><th>Id</th><th>Имя</th><th>Возраст</th></tr>
+        </table>
+        <script>
+        $(function(){
+            $.getJSON('../data/users.json', // файл данных на сервере
+            function(data) {                // метод обратного вызова
+                for(let i=0; i< data.users.length; i++){
+                    // добавление очередной строки в таблицу
+                    $('#users')
+                    .append(`<tr><td>${data.users[i].id}</td><td>${data.users[i].name}</td><td>${data.users[i].age}</td><tr>`);
+                } // for i
+            });
+        });
+        </script>
+    </div>
+
+    <hr />
+
+    <nav>
+        <div>
+            <a href="../index.html">Главная</a>
+            <a href="ajax_forms.html">Работа с формами в AJAX</a>
+        </div>
+    </nav>
+
+     <script>
+        // Форма 1 - отправляем сериализованный JavaScript-объект,
+        // это удобнее для больших форм
+        $("#form1").submit(function(event) {
+            // Предотвращаем обычную отправку формы
+            event.preventDefault();
+
+            // countries1 option:selected - выбранная строка
+            $.post('../src/ajax_json1.php',
+                $('#form1').serialize(),
+                // {'name1':$('#name1').val(), 'age1' : $('#age1').val(),
+                // 'countries1': $('#countries1 option:selected').text()},
+                // функция обратного вызова сработает после получения
+                // данных от сервера
+                function(data) {
+                   $('#result1').html(data);
+                }
+            );
+        });
+    </script>
+
+</body>
+</html>

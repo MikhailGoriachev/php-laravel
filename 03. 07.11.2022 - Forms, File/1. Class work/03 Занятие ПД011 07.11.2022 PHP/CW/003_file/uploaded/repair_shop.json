@@ -1,0 +1,118 @@
+{
+  "_address": "пр. Мира, 13а",
+  "_televisions": [
+    {
+      "_artisan": "Штурлак А.В.",
+      "_brandModel": "AIWA",
+      "_defectDescription": "нет звука",
+      "_diagonal": 50,
+      "_owner": "Васильев А.Н.",
+      "_price": 150
+    },
+    {
+      "_artisan": "Гамджашвили Ю.И.",
+      "_brandModel": "DIGMA",
+      "_defectDescription": "полосы на изображении",
+      "_diagonal": 43.5,
+      "_owner": "Шавыркина П.А.",
+      "_price": 1800
+    },
+    {
+      "_artisan": "Шавыркина П.А.",
+      "_brandModel": "Panasonic",
+      "_defectDescription": "экран отвалился",
+      "_diagonal": 42,
+      "_owner": "Златопольский Д.М.",
+      "_price": 2300
+    },
+    {
+      "_artisan": "Шавыркина П.А.",
+      "_brandModel": "Panasonic",
+      "_defectDescription": "нет звука",
+      "_diagonal": 23.5,
+      "_owner": "Баранова Е.В.",
+      "_price": 150
+    },
+    {
+      "_artisan": "Златопольский Д.М.",
+      "_brandModel": "Prestigio",
+      "_defectDescription": "полосы на изображении",
+      "_diagonal": 21.5,
+      "_owner": "Фортранова Б.В.",
+      "_price": 1800
+    },
+    {
+      "_artisan": "Васильев А.Н.",
+      "_brandModel": "Sony",
+      "_defectDescription": "искажения цвета",
+      "_diagonal": 42,
+      "_owner": "Штурлак А.В.",
+      "_price": 230
+    },
+    {
+      "_artisan": "Баранова Е.В.",
+      "_brandModel": "AIWA",
+      "_defectDescription": "искажения цвета",
+      "_diagonal": 43.5,
+      "_owner": "Щупак Д.Ю.",
+      "_price": 230
+    },
+    {
+      "_artisan": "Юдина Н.А.",
+      "_brandModel": "Panasonic",
+      "_defectDescription": "искажения цвета",
+      "_diagonal": 42,
+      "_owner": "Штурлак А.В.",
+      "_price": 230
+    },
+    {
+      "_artisan": "Шавыркина П.А.",
+      "_brandModel": "BQ",
+      "_defectDescription": "полосы на изображении",
+      "_diagonal": 32,
+      "_owner": "Абрамян М.Э.",
+      "_price": 1800
+    },
+    {
+      "_artisan": "Гамджашвили Ю.И.",
+      "_brandModel": "BBK",
+      "_defectDescription": "полосы на изображении",
+      "_diagonal": 52.5,
+      "_owner": "Фаронова Р.В.",
+      "_price": 1800
+    },
+    {
+      "_artisan": "Юдина Н.А.",
+      "_brandModel": "DIGMA",
+      "_defectDescription": "не включается",
+      "_diagonal": 22,
+      "_owner": "Петрова Д.А.",
+      "_price": 400
+    },
+    {
+      "_artisan": "Фаронова Р.В.",
+      "_brandModel": "Sony",
+      "_defectDescription": "не работает USB",
+      "_diagonal": 23.5,
+      "_owner": "Гамджашвили Ю.И.",
+      "_price": 340
+    },
+    {
+      "_artisan": "Левша Р.Р.",
+      "_brandModel": "Samsung",
+      "_defectDescription": "нет звука",
+      "_diagonal": 55,
+      "_owner": "Ломакин И.В.",
+      "_price": 1200
+    },
+    {
+      "_artisan": "Фортанова В.В.",
+      "_brandModel": "BQ",
+      "_defectDescription": "нет звука и вообще ничего нет",
+      "_diagonal": 32,
+      "_owner": "Ломакин И.В.",
+      "_price": 400
+    }
+  ],
+  "_title":"ДримМастер ТВшоб"
+}

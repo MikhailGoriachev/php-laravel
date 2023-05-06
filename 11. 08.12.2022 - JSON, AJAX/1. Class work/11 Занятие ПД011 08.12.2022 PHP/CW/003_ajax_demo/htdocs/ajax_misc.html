@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>AJAX - дополнительно</title>
+    <meta charset="UTF-8">
+    <script src='../js/jquery-3.6.0.min.js'></script>
+    <link rel="stylesheet" href="../css/style.css"/>
+
+    <!-- картинка для отображения в заголовке вкладки браузера -->
+    <link rel="shortcut icon" href="../imgs/tools.png" type="image/x-icon" />
+    <link rel="icon" href="../imgs/tools.png" type="image/x-icon"/>
+</head>
+<body>
+    <main>
+    <div class="demoDiv">
+        <h3>Подгрузка скриптов</h3>
+        <!-- имя в action м.б. произвольным или вообще отсутствовать -->
+        <form id="form1">
+            <p><input type="button" style="width: 180px" id="btnLightGreen" value="Светло-зеленый фон" /></p>
+            <p><input type="button" style="width: 180px" id="btnWhite" value="Белый фон" /></p>
+        </form>
+    </div>
+
+    <div class="demoDiv">
+        <span id="out"></span>
+    </div>
+    <hr/>
+    </main>
+    <nav>
+        <div>
+            <a href="../index.html">Главная</a>
+            <a href="ajax_json.html">Работа с JSON в AJAX</a>
+        </div>
+    </nav>
+    <script>
+        $(function(){
+            // по клику на кнопке подгружается и выполняется заданный скрипт
+            $('#btnLightGreen').click(function(){$.getScript('../js/lightGreenBg.js');});
+            $('#btnWhite').click(function(){$.getScript('../js/whiteBg.js');});
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="SyntaxDemo" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$">
+    <method v="2">
+      <option name="LaunchBrowser.Before.Run" url="http://localhost:63342/002_starter_syntax/index.php" />
+    </method>
+  </configuration>
+</component>

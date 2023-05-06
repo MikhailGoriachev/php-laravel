@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/App/Task01/Task01Queries.php" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/App/Task01/Task01Tables.php" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/App/Task02/Task02Queries.php" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/App/Task02/Task02Tables.php" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/scripts/task01/queries.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/scripts/task02/create_functions.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/scripts/task02/queries.sql" dialect="MySQL" />
+  </component>
+</project>

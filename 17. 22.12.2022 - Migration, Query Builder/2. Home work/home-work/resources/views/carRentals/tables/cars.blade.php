@@ -1,0 +1,43 @@
+﻿@extends('layouts.layout')
+
+@section('title', 'Модели')
+
+@section('tablesActive', 'active')
+
+@section('content')
+
+    <section class="mx-5 my-4 bg-light shadow-sm border rounded-3 min-vh-100 p-3">
+        <h4 class="text-center">Автомобили</h4>
+
+        <div class="row">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Модель</th>
+                    <th>Цвет</th>
+                    <th>Госномер</th>
+                    <th>Год выпуска</th>
+                    <th>Страховая плата</th>
+                    <th>Цена проката (сутки)</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                @foreach($data->all() as $item)
+                    <tr class="align-middle">
+                        <th>{{$item->id}}</th>
+                        <td>{{$item->brand_name}}</td>
+                        <td>{{$item->color_name}}</td>
+                        <td>{{$item->plate}}</td>
+                        <td>{{$item->year_manufacture}}</td>
+                        <td>{{$item->inshurance_pay}}</td>
+                        <td>{{$item->rental}}</td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+@endsection

@@ -1,0 +1,8 @@
+﻿body {
+    padding: 10px;
+    background-color: beige;
+    font-family: sans-serif;
+    font-size: 12pt;
+}
+
+.green-text { color: green; }

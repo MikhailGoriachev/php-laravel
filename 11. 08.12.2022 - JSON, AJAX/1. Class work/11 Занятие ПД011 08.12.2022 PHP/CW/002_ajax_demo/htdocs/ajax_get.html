@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>AJAX - метод get()</title>
+    <meta charset="UTF-8">
+    <script src='../js/jquery-3.6.0.min.js'></script>
+    <link rel="stylesheet" href="../css/style.css"/>
+
+    <!-- картинка для отображения в заголовке вкладки браузера -->
+    <link rel="shortcut icon" href="../imgs/tools.png" type="image/x-icon" />
+    <link rel="icon" href="../imgs/tools.png" type="image/x-icon"/>
+</head>
+<body>
+    <p>
+        Метод get осуществляет GET-запрос к серверу, то есть все данные
+        запроса передаются в строке запроса.
+        На выходе метод get возвращает объект jqXHR, который будет
+        инкапсулировать данные запроса.
+        Он принимает следующие параметры:
+    </p>
+    <ul>
+        <li>
+            url: обязательный параметр, содержащий адрес ресурса,
+            к которому будет обращаться запрос
+        </li>
+        <li>
+            data: необязательный параметр, содержащий простой объект
+            javascript или строку, которые будут отправлены на сервер
+            вместе с запросом
+        </li>
+        <li>
+            success(data, textStatus, jqXHR): необязательный параметр -
+            функция обратного вызова, которая будет выполняться при успешном
+            выполнении запроса. Она может принимать три параметра:
+            <ul>
+                <li>data - данные, полученные с сервера</li>
+                <li>textStatus - - статус запроса</li>
+                <li>jqXHR - специальный объект jQuery,
+                    который представляет расширенный вариант объекта
+                    XMLHttpRequest.
+                </li>
+            </ul>
+        </li>
+        <li>
+            dataType: необязательный параметр, содержащий тип данных в виде
+            строки, например, "xml" или "json"
+        </li>
+    </ul>
+
+    <div  class="demo-div">
+        <h3>Загрузить при помощи get(url, callback)</h3>
+        <button id="btn1"> Загрузить</button>
+        <div id="data1"><h3>Нет данных от сервера</h3></div>
+    </div>
+
+    <div class="demo-div">
+        <h3>Загрузить при помощи get(url, data)</h3>
+        <button id="btn2">Загрузить</button>
+        <div id="data2"><h3>Нет данных от сервера</h3></div>
+    </div>
+
+    <div class="demo-div">
+        <h3>Загрузить при помощи get(url, callback, dataType)</h3>
+        <button id="btn3">Загрузить</button>
+        <div id="data3"><h3>Нет данных от сервера</h3></div>
+        <p id="status">Запрос не выполнен</p>
+    </div>
+
+    <hr>
+
+    <nav>
+        <div>
+            <a href="../index.html">Главная</a>
+            <a href="ajax_load.html">Метод load() в AJAX</a>
+            <a href="ajax_post.html">Метод post() в AJAX</a>
+            <a href="ajax_jqxhr.html">Объект jqXHR в AJAX</a>
+        </div>
+    </nav>
+
+     <script>
+         // простейший вариант get(url, callback):
+        $(function(){
+            $('#btn1').click(function(){
+                $.get('../src/ajax_get1.php',   // url
+                function(data) {                // callback - для получения
+                    $('#data1').html(data);     // данных
+                });
+            });
+        });
+
+        // отправка данных на сервер, получение данных от сервера
+         // get(url, dataToServer, callback)  !!! callback(dataFromServer)
+        $(function(){
+            $('#btn2').click(function(){
+                $.get('../src/ajax_get2.php',
+                {'name':'Леонов Р.О.', 'age':42, salary:97000}, // данные, передаваемые на сервер
+                function(data) {                         // получение данных от сервера
+                    $('#data2').html(data);
+                });
+            });
+        });
+
+        // отправка данных на сервер, получение двнных в формате json
+         // get(url, callback, dataType)   !!! callback(dataFromServer)
+        $(function(){
+            $('#btn3').click(function(){
+
+                // получение данных от сервера в формате JSON
+                $.get(
+                    '../src/ajax_get3.php',         // url сервера
+                    function(data) {         // callback для получения данных
+                        $('#data3').html(    // имена полей - д.б. известны разработчику
+                        `<p>${data.title}</p><ul>
+                         <li>Имя ${data.name}</li>
+                         <li>Возраст ${data.age}</li>
+                         <li>Оклад ${data.salary}</li>
+                         <li>Случайное число ${data.random}</li></ul>`);
+
+                        // просто вывод информации
+                        $("#status").text("Получение данных от сервера заверешено");
+                    },
+                    'json'  // формат получаемых данных
+                );
+           });
+        });
+    </script>
+
+</body>
+</html>

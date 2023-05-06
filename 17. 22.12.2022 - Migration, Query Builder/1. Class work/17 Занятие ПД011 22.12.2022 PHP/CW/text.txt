@@ -1,0 +1,21 @@
+Русификация Laravel - Горячев Михаил
+
+Поставил русификацию
+И настроил locale
+Там в lang/ru
+Нет конечно
+Сейчас ссылку скину)
+https://webstool.ru/laravel-ru-lang.html
+Русификация Laravel
+https://github.com/mrmlnc/October-Russian-Language/tree/master/modules/system/lang/ru
+GitHub
+October-Russian-Language/modules/system/lang/ru at master · mrmlnc/...
+:pencil: Полный перевод языковых файлов OctoberCMS на русский язык. - October-Russian-Language/modules/system/lang/ru at master · mrmlnc/October-Russian-Language
+October-Russian-Language/modules/system/lang/ru at master · mrmlnc/...
+И во второй ссылке нужно файл validation.php
+И в config/app.php
+'locale' => 'ru',
+'fallback_locale' => 'en',
+'faker_locale' => 'ru_RU',
+Запасной язык)
+

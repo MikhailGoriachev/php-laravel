@@ -1,0 +1,2 @@
+Переменные переменных - символические ссылки
+https://www.php.net/manual/ru/language.variables.variable.php

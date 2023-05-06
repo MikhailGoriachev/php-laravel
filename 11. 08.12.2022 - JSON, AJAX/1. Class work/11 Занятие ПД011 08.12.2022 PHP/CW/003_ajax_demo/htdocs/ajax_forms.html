@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>AJAX - метод post() и работа с формами</title>
+    <meta charset="UTF-8">
+    <script src='../js/jquery-3.6.0.min.js'></script>
+    <link rel="stylesheet" href="../css/style.css"/>
+
+    <!-- картинка для отображения в заголовке вкладки браузера -->
+    <link rel="shortcut icon" href="../imgs/tools.png" type="image/x-icon" />
+    <link rel="icon" href="../imgs/tools.png" type="image/x-icon"/>
+</head>
+<body>
+    <main>
+        <!-- плавающий (определяется классом) блок для демонстрации -->
+        <div class="demoDiv">
+            <!-- имя в action м.б. произвольным или вообще отсутствовать -->
+            <form id="form1">
+                <p><input type="text" id="name1" placeholder="Имя (ожидается john)" /></p>
+                <p><input type="number" id="age1" placeholder="Возраст (от 18 до 141)" /></p>
+                <p><input type="submit" value="Отправить" /></p>
+            </form>
+            <div id="result1"><p>Нет ответа от сервера</p></div>
+        </div>
+
+        <div class="demoDiv">
+            <!-- К этой форме применяем сериализацию при передаче AJAX-ом на
+            сервер, для работы сериализации задаем атрибут name
+            -->
+            <form id="form2">
+                <p><input type="text" id="name2" name="name2" placeholder="Имя (ожидается john)" /></p>
+                <p><input type="number" id="age2" name="age2" placeholder="Возраст (от 18 до 141)" /></p>
+                <p><input type="number" id="salary" name="salary" placeholder="Зарплата (от 12000)" /></p>
+                <p><input type="submit" value="Отправить" /></p>
+            </form>
+            <div id="result2"><p>Нет ответа от сервера</p></div>
+        </div>
+        <hr/>
+    </main>
+    <nav>
+        <div>
+            <a href="../index.html">Главная</a>
+            <a href="ajax_json.html">Работа с JSON в AJAX</a>
+        </div>
+    </nav>
+    <script>
+        // Форма 1 - отправляем JavaScript-объект в явном виде
+        $("#form1").submit(function(event) {
+            // Предотвращаем обычную отправку формы
+            event.preventDefault();
+
+            // отправка AJAX-запроса  $.post(url, dataToServer, function callback(dataFromServer))
+            $.post('../src/ajax_forms1.php',
+                // объект JavaScript с полями, соответствующими элементам
+                // формы
+                {'name':$('#name1').val(), 'age' : $('#age1').val()},
+
+                // функция обратного вызова сработает после получения
+                // данных от сервера
+                function(data) {
+                   $('#result1').html(data);
+                }
+            );
+        });
+
+        // Форма 2 - отправляем сериализованный JavaScript-объект,
+        // это удобнее для больших форм
+        $("#form2").submit(function(event) {
+            // Предотвращаем обычную отправку формы
+            event.preventDefault();
+
+            // $.post(url, dataToServer, function callback(dataFromServer))
+            $.post('../src/ajax_forms2.php',
+                // сериализаця! для ее работы задать в форме атрибуты name
+                $('#form2').serialize(),
+                // {'name':$('#name2').val(), 'age' : $('#age2').val(), 'salary': $('#salary').val()},
+                // функция обратного вызова сработает после получения
+                // данных от сервера
+                function(data) {
+                   $('#result2').html(data);
+                }
+            );
+        });
+    </script>
+</body>
+</html>

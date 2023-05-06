@@ -1,0 +1,65 @@
+
+composer
+https://getcomposer.org/
+
+установить composer
+
+для проверки в консоли ввести
+composer --version
+
+в php.ini открыть расширение
+extension=fileinfo
+
+глобальная установка Laravel при помощи composer
+composer global require laravel/installer
+
+для проверки - перейти в папку, в которой будет создаваться приложение
+laravel new example-app
+
+перейти в папку приложения
+cd example-app
+
+запуск сервера
+php artisan serve
+
+composer                     npm
+Шаблонизатор Blade           ASP.NET Razor
+ORM          Eloquent        .NET Entity Framework 
+
+--------------------------------------------------------------------------------------
+
+php artisan make:controller ИмяконтроллераController
+
+например:
+c:\php\php artisan make:controller HomeController
+
+маршрутизация
+ИмяПриложения/routes/web.php
+
+
+Route::get('/', fn() => view('имяПредставления'));  // файл имяПредставления.blade.php
+Route::get('/test', fn() => 'строка для вывода');   // непосредственный вывод в поток рендеринга
+
+
+начиная с Laravel 8.0
+
+// Action-синтаксис (не забудьте импортировать класс контроллера)
+// действует с Laravel 8.0, подробнее тут
+// https://laravel.demiart.ru/target-class-does-not-exist-in-laravel-8/
+
+// путь к действию index контроллера home
+use App\Http\Controllers\HomeController;
+Route::get('/home', [ HomeController::class, 'index' ]);
+
+
+запуск локального веб-сервера
+php artisan serve
+
+настроить в PHPStorm запуск приложения при помощи PHP script,
+в роли скрипта - artisan
+
+
+https://medium.com/@volodymyrafanasiev/список-из-16-ти-artisan-make-команд-с-параметрами-e75fc6c987e7
+
+https://laravel.su/docs/8.x/installation
+

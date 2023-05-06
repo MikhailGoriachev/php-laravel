@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Демонстрация AJAX</title>
+    <meta charset="UTF-8">
+    <script src='js/jquery-3.6.0.min.js'></script>
+
+    <!-- картинка для отображения в заголовке вкладки браузера -->
+    <link rel="shortcut icon" href="imgs/tools.png" type="image/x-icon" />
+    <link rel="icon" href="imgs/tools.png" type="image/x-icon"/>
+</head>
+<body>
+    <h2>Новости:</h2>
+        <button>Загрузить</button>
+    <hr/>
+
+    <!-- место вывода контента от сервера -->
+    <div id="news"><h3>Нет новостей</h3></div>
+
+    <!--
+    Скрипт, реализующий AJAX-запрос при помощи jQuery
+    jQuery удобно инкапсулирует объект XMLHttpRequest - собственно
+    реализация технологии AJAX -- Asynchronous JavaScript And XML
+    -->
+	<footer>
+		<hr>
+		<h5>КА Шаг, Донецк, группа ПД011, 2022</h5>
+	</footer>
+    <script>
+        // по клику на кнопке только в объект с идентификатором news
+        // метод load() загрузит данные с сервера без перезагрузки
+        // всей страницы
+        $(function(){
+            $('button').click(function(){
+                // load() - запрос к серверу: выполнить ajax_test.php и
+                // получить строку от сервера.
+                // Полученную строку поместить в строку #news
+                $('#news').load('ajax_test.php');
+            });
+        });
+    </script>
+</body>
+</html>

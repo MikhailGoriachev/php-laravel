@@ -1,0 +1,2 @@
+[14-11-2022 00:50:54] name: Конус; figureImage: conoid.jpg; material: Сталь; materialImage: steel.jpg; radius: 34; height: 12; density: 7700; area: 7482.9200632571; volume: 14526.724430199; mass: 111855778.11253; 
+[14-11-2022 00:51:03] name: Конус; figureImage: conoid.jpg; material: Сталь; materialImage: steel.jpg; radius: 4; height: 3; density: 7700; area: 113.09733552923; volume: 50.265482457437; mass: 387044.21492226; 

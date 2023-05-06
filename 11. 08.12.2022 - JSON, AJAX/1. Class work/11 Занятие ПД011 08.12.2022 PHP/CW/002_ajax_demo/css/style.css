@@ -1,0 +1,26 @@
+hr {
+    clear: both;
+    margin: 0;
+    height: 20px;
+    box-sizing: border-box;
+}
+
+/* 
+    класс блоков для размещения демонстрационных
+    элементов AJAX - работа с разными методами и т.д.
+*/
+.demo-div {
+    height: 360px;
+    padding: 6px;
+    overflow: hidden;
+    width: 30%; 
+    float: left;
+}
+
+/* 
+   Навигационная часть одинакова для всех страниц с демонстрацией 
+   AJAX-технологии
+*/
+nav {
+    text-align: center;
+}
